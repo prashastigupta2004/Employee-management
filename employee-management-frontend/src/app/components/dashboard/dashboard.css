@@ -1,0 +1,90 @@
+/* Make body full height and remove default margin */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5; /* full-page background */
+}
+
+/* Dashboard container stretches full height */
+.dashboard-container {
+  min-height: 100vh; /* full viewport height */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center content horizontally */
+  box-sizing: border-box;
+}
+
+/* Welcome text */
+.dashboard-container h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* Employee cards container */
+.employee-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* align cards to the left */
+  gap: 1rem;
+  width: 100%;
+}
+
+
+.employee-card {
+  background-color: #fafafa; /* very light gray */
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08); /* lighter shadow */
+  padding: 1rem;
+  flex: 0 0 calc(25% - 1rem); /* 4 cards per row */
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.employee-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* slightly stronger shadow on hover */
+}
+
+
+@media (max-width: 1024px) {
+  .employee-card {
+    flex: 0 0 calc(50% - 1rem); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 600px) {
+  .employee-card {
+    flex: 0 0 100%; /* 1 card per row */
+  }
+}
+
+.employee-card h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.edit-btn {
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Messages */
+.loading, .no-data, .error-message {
+  text-align: center;
+  margin-top: 1rem;
+  color: #e74c3c;
+}
+

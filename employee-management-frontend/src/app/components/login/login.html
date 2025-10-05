@@ -1,0 +1,42 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email"
+          [ngClass]="{
+            'invalid': email?.invalid && (email?.touched || submitted),
+            'valid': email?.valid && (email?.touched || submitted)
+          }">
+        <div class="error-message" *ngIf="email?.invalid && (email?.touched || submitted)">
+          <small *ngIf="email?.errors?.['required']">Email is required</small>
+          <small *ngIf="email?.errors?.['email']">Invalid email format</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password"
+          [ngClass]="{
+            'invalid': password?.invalid && (password?.touched || submitted),
+            'valid': password?.valid && (password?.touched || submitted)
+          }">
+        <div class="error-message" *ngIf="password?.invalid && (password?.touched || submitted)">
+          <small *ngIf="password?.errors?.['required']">Password is required</small>
+          <small *ngIf="password?.errors?.['minlength']">Minimum 6 characters required</small>
+        </div>
+      </div>
+
+      <div class="error-message" *ngIf="error">{{ error }}</div>
+      <button type="submit" class="auth-button">Login</button>
+
+    </form>
+
+    <div class="auth-footer">
+      Don't have an account? <a routerLink="/register">Create one</a>
+    </div>
+  </div>
+</div>
+

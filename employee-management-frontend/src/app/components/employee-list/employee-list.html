@@ -1,0 +1,40 @@
+<div class="employee-container">
+  <div class="employee-header">
+    <h2>Employee List</h2>
+    <input
+      type="text"
+      [(ngModel)]="searchText"
+      placeholder="Search by name or position"
+      class="search-box"
+    />
+  </div>
+
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <table *ngIf="!loading && filteredEmployees.length > 0" class="employee-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Position</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of filteredEmployees">
+        <td>{{ emp.name | titlecase }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.position | titlecase }}</td>
+        <td>
+          <button class="edit-btn" (click)="editEmployee(emp._id)">Edit</button>
+          <button class="delete-btn" (click)="deleteEmployee(emp._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && filteredEmployees.length === 0" class="no-data">
+    No employees found.
+  </div>
+</div>

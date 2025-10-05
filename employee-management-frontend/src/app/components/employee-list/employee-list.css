@@ -1,0 +1,128 @@
+.employee-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #fafafa; /* very light background */
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.employee-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 2rem;
+}
+
+.add-btn {
+  display: block;
+  margin: 0 auto 1.5rem auto;
+  padding: 0.6rem 1.2rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  overflow: hidden;
+}
+
+.employee-table th, .employee-table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.employee-table th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: 600;
+}
+
+.employee-table tbody tr {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.employee-table tbody tr:hover {
+  transform: translateY(-2px);
+}
+
+.employee-table td {
+  border: none;
+}
+
+.edit-btn, .delete-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.edit-btn {
+  background-color: #3498db;
+  color: white;
+  margin-right: 8px;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.loading, .error, .no-data {
+  text-align: center;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .employee-table th, .employee-table td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .add-btn {
+    width: 100%;
+  }
+}
+
+.employee-header {
+  display: flex;
+  justify-content: space-between; /* title on left, search on right */
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.search-box {
+  width: 200px;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}

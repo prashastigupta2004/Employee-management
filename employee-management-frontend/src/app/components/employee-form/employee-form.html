@@ -1,0 +1,59 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>{{ isEditMode ? 'Edit Employee' : 'Add Employee' }}</h2>
+
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" formControlName="name"
+          [ngClass]="{
+            'invalid': name?.invalid && (name?.touched || submitted),
+            'valid': name?.valid && (name?.touched || submitted)
+          }">
+        <div class="error-message" *ngIf="name?.invalid && (name?.touched || submitted)">
+          <small *ngIf="name?.errors?.['required']">Name is required</small>
+          <small *ngIf="name?.errors?.['minlength']">Minimum 3 characters required</small>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email"
+          [ngClass]="{
+            'invalid': email?.invalid && (email?.touched || submitted),
+            'valid': email?.valid && (email?.touched || submitted)
+          }">
+        <div class="error-message" *ngIf="email?.invalid && (email?.touched || submitted)">
+          <small *ngIf="email?.errors?.['required']">Email is required</small>
+          <small *ngIf="email?.errors?.['email']">Invalid email format</small>
+        </div>
+      </div>
+
+      <!-- Position -->
+      <div class="form-group">
+        <label for="position">Position</label>
+        <input type="text" id="position" formControlName="position"
+          [ngClass]="{
+            'invalid': position?.invalid && (position?.touched || submitted),
+            'valid': position?.valid && (position?.touched || submitted)
+          }">
+        <div class="error-message" *ngIf="position?.invalid && (position?.touched || submitted)">
+          <small *ngIf="position?.errors?.['required']">Position is required</small>
+        </div>
+      </div>
+
+      <div class="error-message" *ngIf="error">{{ error }}</div>
+
+      <button type="submit" class="auth-button">
+        {{ isEditMode ? 'Update Employee' : 'Add Employee' }}
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <a routerLink="/dashboard">Back to Dashboard</a>
+    </div>
+  </div>
+</div>
