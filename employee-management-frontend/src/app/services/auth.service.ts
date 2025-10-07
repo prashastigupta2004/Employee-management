@@ -8,7 +8,7 @@ import { environment } from '../../env/env';
 })
 
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api/auth';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 
